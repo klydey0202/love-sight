@@ -1,0 +1,50 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fce4ec;
+    color: #333;
+  }
+  
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .code-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  input[type="password"] {
+    padding: 10px;
+    width: 150px;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #ec407a;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #d81b60;
+  }
+  
+  #errorMsg {
+    color: red;
+    margin-top: 10px;
+  }
+  

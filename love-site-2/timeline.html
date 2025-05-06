@@ -1,0 +1,279 @@
+<!-- timeline.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Timeline</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #fff0f6;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem 1rem;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: #d81b60;
+      margin-bottom: 2rem;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #f48fb1;
+      border-left: 2px dashed #d81b60;
+      transform: translateX(-50%);
+    }
+
+    .entry {
+      padding: 1.5rem;
+      width: 50%;
+      position: relative;
+    }
+
+    .entry img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .entry .text {
+      margin-top: 0.5rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .entry.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .entry.right {
+      left: 50%;
+    }
+
+    .entry::after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      width: 20px;
+      height: 20px;
+      background: #d81b60;
+      border-radius: 50%;
+      border: 4px solid white;
+      z-index: 1;
+    }
+
+    .entry.left::after {
+      right: -10px;
+    }
+
+    .entry.right::after {
+      left: -10px;
+    }
+
+    @media (max-width: 768px) {
+      .entry, .entry.left, .entry.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .entry::after {
+        left: 12px;
+      }
+
+      .division-bottom {
+        text-align: right;
+        margin-top: 10rem;
+      }
+    }
+  </style>
+</head>
+<body onload="verifyAccess()">
+  <h1>Our Love Timeline</h1>
+  <div class="timeline">
+    <div class="entry left">
+      <img src="assets/images/jan-2020.jpg" alt="First date">
+      <div class="text">Unang Date natin sa China Mall - Binondo, hanggang ngayon hindi ko ma-imagine kung gaano tayo payat nyan hahaha. Kasama ang mga kaibigan mo sobrang saya at tumatak itong litrato nato sakin.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/nov-2021.jpg" alt="Samsung-Flip">
+      <div class="text">Unang picture mo sa Samsung Flip mo hahaha. Naalala ko kung gaano mo kagusto yan at talagang nanghingi ka sakin ng advice kung dapat mo bang bilhin. Syempre hindi naman ako hadlang sa gusto mo kaya ayan, nag ka flip ka.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/dec-11-2021.jpg" alt="Momo">
+      <div class="text">Momo first came in our life. Sobrang cute ni Momo noon, at ang ganda, ngayon pasaway na hahaha. I mean we both thought that this was our first pet, though hindi siya malapit satin nung una, we both know na kilala nya tayo at love hehe.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/may-23-22.jpg" alt="Holiday memory">
+      <div class="text">Birthday to ni tita May sa may bulacan hehe. Sobrang hirap ako ipaalam ka nito at buti nalang pumayag sila tita. Nakakatuwa at ito dahil ramdam ko yung pagiging open na both parents natin</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/may-14-2023.jpg" alt="First confident">
+      <div class="text">Birthday to ni Lola mo, at sobrang memorable nitong picture nato kasi ito yung unang itinaas mo yung confident mo sa damit. Sobrang proud ko sayo nyan love</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/june-10-2023.jpg" alt="Holiday memory">
+      <div class="text">Ito yung picture doon sa company swimming niyo sa bulacan. Grabe ang memory nato love, kasi first time ko mag motor ng malayo, at sobrang memorable kasi sabay nating nilusong yung ulan pauwi galing bulacan. Halo-halong sitwasyon, emosyon at bonding nag naranasan natin dito love.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/july-2-2023.jpg" alt="Holiday memory">
+      <div class="text">This one is the most iconic picture natin sa laguna. Birthday ito ng pinsan mo, at dito ko nalaman na ang swerte ko sayo kasi inalagaan mo ako nyan. That day I felt safe and comfort.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/first-polaroid.jpg" alt="Holiday memory">
+      <div class="text">Our first polaroid picture. Ito talaga yung gift ko na gustong gusto ko nung binigay ko sayo, though this was the first pero pinaghirapan ko yung regalo nayan, halos di ko alam paano magdadahilan sayo nyan nung bibilhin ko yan sa megamall na hindi ka nagtatanong kung saan ako pupunta hahaha.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/may-23-22.jpg" alt="Holiday memory">
+      <div class="text">Ito yung pinaka witty naman nating picture together, nasa Ikea tayo nyan kasama ang family mo, nandyan narin si daddy mo nyan. Sobrang cute at natin dito love</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/mamamoo.jpg" alt="Holiday memory">
+      <div class="text">MAMAMOO - hahaha grabe tong concert nato, first concert natin to, at nakita ko yung pagka-enjoy mo, kahit na nahirapan ako kabisadohin lahat ng kanta nila sa maikling panahon eh nagawa ko naman. More concert to attend pa satin hahaha.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/iphone.jpg" alt="Holiday memory">
+      <div class="text">Second matchy case - Unang matchy case natin nung sa samsung. At dahil nag migrate tayo sa iPhone syempre matchy din tayo. You always make us connected lalo sa mga ganitong bagay. Kaya lagi akong natutuwa sayo love.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/love2eat.jpg" alt="Holiday memory">
+      <div class="text">Samgyupsal guru tayo kung tutuusin, kung marami lang tayong budget pwede na tayo mag vlog ng samgyup channel hahaha. Sobrang hilig natin sa korean grill, kaya more kain pa satin ha? hahaha</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/twice.jpg" alt="Holiday memory">
+      <div class="text">First concert together only - second best concert ko to, alam mo na yung first hahahaha. Pero syempre memorable parin to kasi syempre Twice to eh. Dito mo ako pinormahan sa Twice hahaha. Ginamit mo ang kahinaan ko hahaha.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/twice2.jpg" alt="Holiday memory">
+      <div class="text">Camping sa Philippine Arena yern? HAHAHA sobrang saya nyan, buti dinala ko yung tent, di ko din maisip bakit ko dinala yan hahaha</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/twice3.jpg" alt="Holiday memory">
+      <div class="text">Init yern? hahahaha. Tamang hintay lang kasi ang natin pumunta no? Tapos tutulog lang pala hahaha</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/twice4.jpg" alt="Holiday memory">
+      <div class="text">That day, I was the luckiest man in the world, having you and making memories</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/swimming-again.jpg" alt="Holiday memory">
+      <div class="text">Ayan, sobrang easy na mag paalam ng swimming kaya sobrang happy mo nyan kasi nakakasama kana agad sa mga ganyan. Birthday pala yan ni Baby sa San Rafael bulacan. Yung may tipaklong po hehe</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/aerys.jpg" alt="Holiday memory">
+      <div class="text">Our first vehicle baby - Aerys, sobrang love natin to. Kahit na marami na siyang gasgas lagi siyang matibay at hinahatid nya tayo sa gusto natin. Sana masundan na si Aerys para hindi na siya laging pagod... Soon baka si pareng jimny na</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/mimiDaCat.jpg" alt="Holiday memory">
+      <div class="text">We never expect na magkaka-cat tayo. Sobrang similiar talaga sating dalawa ang pusa, at natutuwa ako at ito ang ating animal spirit</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/baguio1.jpg" alt="Holiday memory">
+      <div class="text">Baguio, sobrang saya ng memories nato, core memories ito at pinasaya mo talaga yung puso ko sa araw nato. Lagi kong iniisip na sana dati pa kita pinursue na sana tinuloy tuloy ko dati.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/baguio2.jpg" alt="Holiday memory">
+      <div class="text">Family picture hehe. Kala ko malamig dyan, hindi pala medyo scam ng onti hahahaha</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/baguio3.jpg" alt="Holiday memory">
+      <div class="text">Nag strawberry taho nyan hehe. Kulay strawberry lang pala yun, tapos konting straberry na durog hahaha</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/baguio4.jpg" alt="Holiday memory">
+      <div class="text">Favorite mo talaga hawakan yung tiyan ko. Kita tuloy yung hulma ng tiyan ko hahaha</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/baguio5.jpg" alt="Holiday memory">
+      <div class="text">Nung gabi nayan sabi ko sana di muna tayo umuwi, kahit isang araw pa. Kasi parang nasa fairytale yung pakiramdam ko nyan at sobrang saya natin nakakatamad bumalik sa manila nyan hahaha</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/confident1.jpg" alt="Holiday memory">
+      <div class="text">Nag level up na ang confident mo, sobrang napa-proud ako sayo lagi pag tinataasan mo yung confident mo sa damit kasi bagay sayo yung mga naiisip mong suotin. Sana maniwala ka sakin pag sinasabi ko sayong bagay hahaha.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/supriseGift.jpg" alt="Holiday memory">
+      <div class="text">Ito ang literal na surprise, kahit ako na surprise, kasi ang simple lang naman ng balak non kahit anong pasalubong lang, pero iba yung pasalubong na dinala ko galing UPTOWN hehe. Masaya ako na hanggat ngayon masaya kang suot parin yan.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/new-year-2024.jpg" alt="Holiday memory">
+      <div class="text">I cant wait to spend the rest of my life with you. Lalo na sa mga ganitong picture, ang sarap lang balikan na kada papasok ang taon may picture tayong dalawa.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/love2eatAgain.jpg" alt="Holiday memory">
+      <div class="text">Aguy, lamon ulit hehehe. Mag food vlog na kaya tayo? HAHAHAHA</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/ensayo.jpg" alt="Holiday memory">
+      <div class="text">Ensayo, sobrang sayang tumunpad lalo na kasama mo yung mahal mo. Kaya kahit ako lang minsan ang tumutupad hindi ako malungkot kasi alam ko lagi kitang kasama sa puso ko at kasama kita sa pagtupad palagi</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/happiest-birthday.jpg" alt="Holiday memory">
+      <div class="text">happiest birthday kung ikanga, sa SM Pampanga ito, nakakatuwa na halos lahat kayo dyan sabay sabay nag celebrate ng araw nayan.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/confident2.jpg" alt="Holiday memory">
+      <div class="text">I love when you are confident in the camera. Kaya lagi kitang inaaya mag pose kasi maganda ka umanggulo at nahihiya kalang. Kaya sobrang saya ko pag pumapayag ka pag pinicturan kita with posing hehe.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/manila-hotel.jpg" alt="Holiday memory">
+      <div class="text">Panahong paldo pa hahaha. Ito yung birthday mo na 3 months kong plinano, tinantsa ko yung buwan at kung sasakto ba yung mga gagamitin ko sa araw nayan, at natutuwa ako kasi maganda po ang kinalabasan, medyo pricy lang po siya pero you are always worth it love.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/sick.jpg" alt="Holiday memory">
+      <div class="text">Most challeging satin so far. I couldnt believe we faced this situation na tayo lang. Sobrang thankful ako kasi nagtiwala ka sakin at dahil sa tiwala mo nagawa ko ng maayos lahat. Kaya thank you always love for being strong.</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/jolly.jpg" alt="Holiday memory">
+      <div class="text">Stay always happy and jolly love. You are the most wonderful life being I ever known. At ang swerte ko kasi kasama kita lagi at sa mga susunod pang taon.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/occassion.jpg" alt="Holiday memory">
+      <div class="text">Laging mabibiya ang pagtupad kapag isinasapuso mo ang pagpuri sa Ama, lalo na kung kasama mo ang katuwang mo lagi buhay. Kaya salamat love na patuloy tayong nag lilingkod sa Ama</div>
+    </div>
+    <div class="entry right">
+      <img src="assets/images/2025.jpg" alt="Holiday memory">
+      <div class="text">Sa bawat pagpasok ng taon Love, lagi masaya ang puso ko pag kasama ka. Kaya sa taong ito na kaarawan mo, sana maging matupad lahat ng hiling mo at mapasayo lahat ng nais mo.</div>
+    </div>
+    <div class="entry left">
+      <img src="assets/images/our-latest.jpg" alt="Holiday memory">
+      <div class="text">Tandaan mong, lagi mo akong kakampi, kaagapay, at kasangga sa lahat ng bagay. Patuloy kitang susuportahan sa gusto mo at aalalayan kita sa lahat ng desisyon mo, patuloy nating susubukin ang panahon love, at habang buhay kitang mamahalin. Happy Birthday Love, I love you</div>
+    </div>
+  </div>
+  <div class="division-bottom">
+    <button onclick="location.href='memory.html'" class="next-button">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

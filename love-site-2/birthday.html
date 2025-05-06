@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Love! 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .parallax-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff0f5;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      font-size: 2rem;
+      padding: 2rem;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .bg img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      filter: blur(4px) brightness(0.7);
+      will-change: transform;
+    }
+
+    .bg-back img { animation: scrollBgSlow 80s linear infinite; z-index: -3; }
+    .bg-mid img { animation: scrollBgMedium 60s linear infinite; z-index: -2; }
+    .bg-front img { animation: scrollBgFast 40s linear infinite; z-index: -1; }
+
+    @keyframes scrollBgSlow {
+      0% { transform: scale(1.1) translateY(0); }
+      100% { transform: scale(1.1) translateY(-4%); }
+    }
+
+    @keyframes scrollBgMedium {
+      0% { transform: scale(1.1) translateY(0); }
+      100% { transform: scale(1.1) translateY(-8%); }
+    }
+
+    @keyframes scrollBgFast {
+      0% { transform: scale(1.1) translateY(0); }
+      100% { transform: scale(1.1) translateY(-12%); }
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    section:nth-child(odd) {
+      background-color: rgba(255, 192, 203, 0.2);
+    }
+
+    section:nth-child(even) {
+      background-color: rgba(255, 182, 193, 0.15);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: white;
+      background-color: #d81b60;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+
+    #balloonContainer {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .balloon {
+      width: 40px;
+      height: 60px;
+      background: red;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: absolute;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 1; }
+      100% { transform: translateY(-800px) translateX(20px); opacity: 0; }
+    }
+
+    canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+    }
+    #last-section {
+      background-color: rgba(255, 192, 203, 0.2);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: auto; /* Push the button to the bottom */
+      align-self: center; /* Center the button horizontally */
+    }
+  </style>
+</head>
+<body onload="verifyAccess(); startConfettiRain();">
+  <!-- Background layers -->
+  <div class="bg bg-back">
+    <img src="assets/bg-layer1.jpg" alt="Background Layer 1" />
+  </div>
+  <div class="bg bg-mid">
+    <img src="assets/bg-layer2.jpg" alt="Background Layer 2" />
+  </div>
+  <div class="bg bg-front">
+    <img src="assets/bg-layer3.jpg" alt="Background Layer 3" />
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Balloons -->
+  <div id="balloonContainer">
+    <div class="balloon" style="background: pink; left: -50px;"></div>
+    <div class="balloon" style="background: lightblue; left: 0;"></div>
+    <div class="balloon" style="background: lightgreen; left: 50px;"></div>
+  </div>
+
+  <!-- Confetti -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Parallax Sections -->
+  <section class="parallax-section">Hi love,</section>
+  <section class="parallax-section">This is your day!</section>
+  <section class="parallax-section">I hope you're feeling the same happiness you felt last year.</section>
+  <section class="parallax-section">
+    I know this birthday may not be as extravagant as the one I was able to give you before,<br>
+    but I hope you know just how much I want today to be as special as it should be.
+  </section>
+  <section class="parallax-section">
+    I hope this Love-Sight brings you back to that same feeling you had last year—<br>
+    when I gave you a gift from the heart.
+  </section>
+  <section class="parallax-section" id="last-section">
+    Please enjoy the sight of my unending love... <br><br>
+    <button onclick="triggerSurprise()">Next</button>
+  </section>
+
+  <!-- Sounds -->
+  <audio id="popSound" src="sounds/balloon-pop.mp3" preload="auto"></audio>
+  <audio id="hornSound" src="sounds/party-horn.mp3" preload="auto"></audio>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    let confettiInterval;
+
+    function startConfettiRain() {
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
+
+      confettiInterval = setInterval(() => {
+        myConfetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { x: Math.random(), y: Math.random() * 0.5 }
+        });
+      }, 500);
+
+      setTimeout(() => clearInterval(confettiInterval), 10000);
+    }
+
+    function triggerSurprise() {
+      document.getElementById('popSound').play();
+      document.getElementById('hornSound').play();
+
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
+
+      myConfetti({
+        particleCount: 150,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+
+      document.getElementById('balloonContainer').style.display = 'block';
+      clearInterval(confettiInterval);
+
+      setTimeout(() => {
+        window.location.href = 'timeline.html';
+      }, 5000);
+    }
+
+    function verifyAccess() {
+      // Your existing access verification code if needed
+    }
+  </script>
+</body>
+</html>

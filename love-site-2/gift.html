@@ -1,0 +1,128 @@
+<!-- gift.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Gift to You</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f3e5f5;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      color: #8e24aa;
+      margin-bottom: 1rem;
+    }
+
+    .gift-box {
+      width: 150px;
+      height: 150px;
+      background: #d81b60;
+      position: relative;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .gift-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 20px;
+      height: 100%;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+
+    .lid {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: #ad1457;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      transition: all 0.5s ease;
+    }
+
+    .gift-box.open .lid {
+      transform: translateY(-60px) rotate(-10deg);
+    }
+
+    .gift-content {
+      display: none;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .gift-box.open + .gift-content {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      font-size: 2rem;
+      color: #d81b60;
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body onload="verifyAccess()">
+  <h1>Here's a Little Gift 🎁</h1>
+  <div class="gift-box" onclick="openGift(this)">
+    <div class="lid"></div>
+  </div>
+  <div class="gift-content" id="giftMessage">
+    <p>My love,</p>
+    <p>This gift may be digital, but it's made of the realest thing—my heart 💌</p>
+    <div class="heart">❤️</div>
+    <p>Click "Next" when you're ready for more surprises...</p>
+    <div class="division-bottom">
+      <button onclick="location.href='wish.html'">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function openGift(el) {
+      el.classList.toggle("open");
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

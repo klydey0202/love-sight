@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love-Sight Access</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="centered">
+  <audio id="popSound" src="sounds/balloon-pop.mp3" preload="auto"></audio>
+  <audio id="hornSound" src="sounds/party-horn.mp3" preload="auto"></audio>
+  
+  <div class="code-box">
+    <h2>Enter Our Secret Code ❤️</h2>
+    <input type="password" id="codeInput" placeholder="••••••" />
+    <button onclick="checkCode()">Unlock</button>
+    <p id="errorMsg"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

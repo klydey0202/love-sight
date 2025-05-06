@@ -1,0 +1,85 @@
+<!-- wishFromMe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wish From Me</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #fff0f6;
+      font-family: 'Georgia', serif;
+      color: #6a1b9a;
+      margin: 0;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .letter {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #d81b60;
+      margin-bottom: 1rem;
+    }
+
+    .signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .division-bottom {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body onload="verifyAccess()">
+  <div class="letter">
+    <h1>My Birthday Wish for You 🎂</h1>
+    <p>
+      My love, on this beautiful day, I wish you the kind of joy that lights your heart from within. I hope today fills you with warmth, laughter, and memories worth holding forever.
+    </p>
+    <p>
+      May you always find peace in the little things, and strength when life feels heavy. May your dreams feel closer each day, and may you always feel how deeply you are loved — especially by me.
+    </p>
+    <p>
+      I may not always have the perfect words, but I promise you this: You are my everything, and I’m so grateful you were born. Happy birthday, my one and only.
+    </p>
+    <div class="signature">
+      With all my heart,<br />
+      Your Love ❤️
+    </div>
+    <div class="division-bottom">
+      <button onclick="location.href='endless.html'">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

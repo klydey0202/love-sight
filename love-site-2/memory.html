@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #fce4ec;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      color: #d81b60;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .card {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    .card.flipped {
+      background: #ff80ab;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    #message {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #6a1b9a;
+      display: none;
+    }
+
+    .divison-bottom {
+      margin-top: 2rem;
+    }
+
+    .next-button {
+      display: none; /* Initially hide the button */
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .next-button:hover {
+      background-color: #3700b3;
+    }
+  </style>
+</head>
+<body onload="verifyAccess()">
+  <h1>Memory Game 💞</h1>
+  <p>Match the related pairs that remind us of each other!</p>
+  
+  <div class="grid" id="gameBoard"></div>
+  <div id="message">You matched them all! Just like us. 🥰</div>
+  <div class="divison-bottom">
+    <button id="nextButton" class="next-button" onclick="location.href='gift.html'">Next</button> <!-- Add a proper link to next page -->
+  </div>
+
+  <script>
+    const pairs = [
+      { symbol: "⛏️", match: "💎" },
+      { symbol: "🎧", match: "🎶" },
+      { symbol: "🎮", match: "🕹️" },
+      { symbol: "🐱", match: "🐶" },
+      { symbol: "🍗", match: "🍕" },
+      { symbol: "🎥", match: "🍿" },
+    ];
+
+    // Flatten and shuffle
+    const cards = [...pairs, ...pairs.map(p => ({symbol: p.match, match: p.symbol}))].sort(() => 0.5 - Math.random());
+
+    const board = document.getElementById('gameBoard');
+    let flippedCards = [];
+    let matched = [];
+
+    function createCard(symbol) {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.dataset.symbol = symbol;
+      card.textContent = "❓";
+
+      card.addEventListener("click", () => {
+        if (flippedCards.length < 2 && !card.classList.contains("flipped") && !matched.includes(card)) {
+          card.classList.add("flipped");
+          card.textContent = symbol;
+          flippedCards.push(card);
+
+          if (flippedCards.length === 2) {
+            const [a, b] = flippedCards;
+            if (a.dataset.symbol === b.dataset.symbol) return;
+
+            const matchA = pairs.find(p => p.symbol === a.dataset.symbol || p.match === a.dataset.symbol);
+            if (matchA && (b.dataset.symbol === matchA.symbol || b.dataset.symbol === matchA.match)) {
+              matched.push(...flippedCards);
+              flippedCards = [];
+              if (matched.length === cards.length) {
+                document.getElementById("message").style.display = "block";  // Show the success message
+                document.getElementById("nextButton").style.display = "block";  // Show the "Next" button
+              }
+            } else {
+              setTimeout(() => {
+                flippedCards.forEach(c => {
+                  c.classList.remove("flipped");
+                  c.textContent = "❓";
+                });
+                flippedCards = [];
+              }, 800);
+            }
+          }
+        }
+      });
+
+      return card;
+    }
+
+    cards.forEach(c => board.appendChild(createCard(c.symbol)));
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

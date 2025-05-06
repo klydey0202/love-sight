@@ -1,0 +1,117 @@
+<!-- endlessLove.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Endless Love</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .scroll-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scroll-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      animation: scroll-up 90s linear forwards;
+    }
+
+    .lang-line {
+      font-size: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .final-spacer {
+      height: 100vh; /* Big gap before the last message */
+    }
+
+    .final-message {
+      font-size: 2rem;
+      color: #ff80ab;
+      font-weight: bold;
+      padding-bottom: 40vh; /* Keeps it centered when scroll ends */
+    }
+
+    @keyframes scroll-up {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: -220%;
+      }
+    }
+
+  </style>
+</head>
+<body onload="verifyAccess()">
+  <div class="scroll-container">
+    <div class="scroll-text">
+      <div class="lang-line">Mahal kita (Tagalog)</div>
+      <div class="lang-line">I love you (English)</div>
+      <div class="lang-line">Je t’aime (French)</div>
+      <div class="lang-line">Te amo (Spanish)</div>
+      <div class="lang-line">Saranghae (Korean)</div>
+      <div class="lang-line">Aishiteru (Japanese)</div>
+      <div class="lang-line">Ich liebe dich (German)</div>
+      <div class="lang-line">Ti amo (Italian)</div>
+      <div class="lang-line">Main tumse pyaar karta hoon (Hindi)</div>
+      <div class="lang-line">Ya tebya lyublyu (Russian)</div>
+      <div class="lang-line">Wo ai ni (Chinese)</div>
+      <div class="lang-line">Ek het jou lief (Afrikaans)</div>
+      <div class="lang-line">Jeg elsker dig (Danish)</div>
+      <div class="lang-line">Eu te amo (Portuguese)</div>
+      <div class="lang-line">Ani ohev otach (Hebrew)</div>
+      <div class="lang-line">Saya cinta kamu (Indonesian)</div>
+      <div class="lang-line">Mi amas vin (Esperanto)</div>
+      <div class="lang-line">Ngiyakuthanda (Zulu)</div>
+      <div class="lang-line">Te iubesc (Romanian)</div>
+      <div class="lang-line">Volim te (Serbian)</div>
+      <div class="lang-line">Kocham cię (Polish)</div>
+      <div class="lang-line">Ben seni seviyorum (Turkish)</div>
+      <div class="lang-line">Inhobok (Maltese)</div>
+      <div class="lang-line">Szeretlek (Hungarian)</div>
+      <div class="lang-line">Ngo oi nei (Cantonese)</div>
+      <!-- Long spacer before the final message -->
+      <div class="final-spacer"></div>
+
+      <!-- Final message -->
+      <div class="final-message">Happy Birthday, Love ❤️</div>
+      <div>
+        <button onclick="location.href='index.html'">Start Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
